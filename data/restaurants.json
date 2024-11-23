@@ -1,0 +1,45 @@
+[
+    {
+      "id": "1",
+      "name": "Starbucks",
+      "category": "Food & Drinks",
+      "image": "https://link/to/starbucks-logo.png",
+      "grubhubLink": "https://grubhub.com/restaurant/starbucks-fiu-campus"
+    },
+    {
+      "id": "2",
+      "name": "The Salty Donut",
+      "category": "Food & Drinks",
+      "image": "https://link/to/salty-donut-logo.png",
+      "grubhubLink": "https://grubhub.com/restaurant/the-salty-donut-fiu-campus"
+    },
+    {
+      "id": "3",
+      "name": "Pincho Factory",
+      "category": "Food & Drinks",
+      "image": "https://link/to/pincho-logo.png",
+      "grubhubLink": "https://grubhub.com/restaurant/pincho-factory-fiu-campus"
+    },
+    {
+      "id": "4",
+      "name": "Sushi Maki",
+      "category": "Food & Drinks",
+      "image": "https://link/to/sushi-maki-logo.png",
+      "grubhubLink": "https://grubhub.com/restaurant/sushi-maki-fiu-campus"
+    },
+    {
+      "id": "5",
+      "name": "Market",
+      "category": "Food & Drinks",
+      "image": "https://link/to/market-logo.png",
+      "grubhubLink": "https://grubhub.com/restaurant/market-fiu-campus"
+    },
+    {
+      "id": "6",
+      "name": "Panda Express",
+      "category": "Food & Drinks",
+      "image": "https://link/to/panda-express-logo.png",
+      "grubhubLink": "https://grubhub.com/restaurant/panda-express-fiu-campus"
+    }
+  ]
+  

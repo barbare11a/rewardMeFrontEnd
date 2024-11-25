@@ -4,42 +4,66 @@
       "name": "Starbucks",
       "category": "Food & Drinks",
       "image": "https://link/to/starbucks-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/starbucks-fiu-campus"
+      "grubhubLink": "https://grubhub.com/restaurant/starbucks-fiu-campus",
+      "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
     },
     {
       "id": "2",
       "name": "The Salty Donut",
       "category": "Food & Drinks",
       "image": "https://link/to/salty-donut-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/the-salty-donut-fiu-campus"
+      "grubhubLink": "https://grubhub.com/restaurant/the-salty-donut-fiu-campus",
+      "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+      ]
     },
     {
       "id": "3",
       "name": "Pincho Factory",
       "category": "Food & Drinks",
       "image": "https://link/to/pincho-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/pincho-factory-fiu-campus"
+      "grubhubLink": "https://grubhub.com/restaurant/pincho-factory-fiu-campus",
+      "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+      ]
     },
     {
       "id": "4",
       "name": "Sushi Maki",
       "category": "Food & Drinks",
       "image": "https://link/to/sushi-maki-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/sushi-maki-fiu-campus"
+      "grubhubLink": "https://grubhub.com/restaurant/sushi-maki-fiu-campus",
+      "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+      ]
     },
     {
       "id": "5",
       "name": "Market",
       "category": "Food & Drinks",
       "image": "https://link/to/market-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/market-fiu-campus"
+      "grubhubLink": "https://grubhub.com/restaurant/market-fiu-campus",
+      "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+      ]
     },
     {
       "id": "6",
       "name": "Panda Express",
       "category": "Food & Drinks",
       "image": "https://link/to/panda-express-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/panda-express-fiu-campus"
+      "grubhubLink": "https://grubhub.com/restaurant/panda-express-fiu-campus",
+      "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+      ]
     }
   ]
   

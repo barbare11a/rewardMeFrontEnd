@@ -59,7 +59,7 @@ const Layout = () => {
                   backgroundColor: focused ? Colors.tintColor : Colors.grey,
                 }}
               >
-                <AntDesign name="swap" size={18} color={color} />
+                <AntDesign name="home" size={18} color={color} />
               </View>
             ),
           }}

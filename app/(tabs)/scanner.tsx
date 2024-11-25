@@ -13,7 +13,7 @@ const Page = () => {
     </>
   );
 };
-
+ 
 export default Page;
 
 const styles = StyleSheet.create({

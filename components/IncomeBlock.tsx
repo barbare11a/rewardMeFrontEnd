@@ -67,7 +67,7 @@ const IncomeBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
   return (
     <View>
       <Text style={{ color: Colors.white, fontSize: 16, marginBottom: 20 }}>
-        My <Text style={{ fontWeight: "700" }}>Income</Text>
+        My <Text style={{ fontWeight: "700" }}>Rewards</Text>
       </Text>
       <FlatList
         data={incomeList}

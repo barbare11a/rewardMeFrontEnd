@@ -1,48 +1,43 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 import { Stack } from "expo-router";
+import { auth } from "@/firebaseConfig"; // Import Firebase config
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const Page = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [isGrubhubConnected, setIsGrubhubConnected] = useState(false);
-
-  // Mock user data
   const [user, setUser] = useState({
-    username: "JohnDoe",
-    name: "john doe",
-    email: "johndoe@example.com",
-    phone: "+1234567890",
+    name: "",
+    email: "",
   });
 
-  // Temporary state to hold editable values
-  const [tempUser, setTempUser] = useState(user);
+  // Fetch user information from Firebase
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        // Replace with displayName if you store the name in Firebase Auth
+        setUser({
+          name: currentUser.displayName || "Anonymous User",
+          email: currentUser.email || "",
+        });
+      } else {
+        setUser({ name: "", email: "" });
+      }
+    });
 
-  const handleEditProfile = () => {
-    setIsEditing(true);
-  };
+    return () => unsubscribe(); // Cleanup the listener on unmount
+  }, []);
 
-  const handleSave = () => {
-    setUser(tempUser);
-    setIsEditing(false);
-    Alert.alert("Profile Updated", "Your profile changes have been saved.");
-  };
-
-  const handleCancel = () => {
-    setTempUser(user); // Revert changes
-    setIsEditing(false);
-  };
-
-  const handleConnectGrubhub = () => {
-    Alert.alert(
-      "Connect Grubhub Account",
-      "You will be redirected to log in with Grubhub.",
-      [
-        { text: "Cancel", style: "cancel" },
-        { text: "Continue", onPress: () => setIsGrubhubConnected(true) },
-      ]
-    );
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      Alert.alert("Logged Out", "You have been logged out.");
+      // Navigate to login screen if necessary
+    } catch (error) {
+      Alert.alert("Error", "Failed to log out. Please try again.");
+    }
   };
 
   return (
@@ -51,104 +46,32 @@ const Page = () => {
       <View style={styles.container}>
         {/* Header with Edit Icon */}
         <View style={styles.header}>
-  <Text style={styles.headerText}>Profile</Text>
-  {!isEditing && (
-    <TouchableOpacity onPress={handleEditProfile} style={styles.editIcon}>
-      <FontAwesome name="pencil" size={20} color={Colors.white} />
-    </TouchableOpacity>
-  )}
-</View>
-
-
-        {/* Username */}
-        <View style={styles.infoSection}>
-          <Text style={styles.label}>Username:</Text>
-          {isEditing ? (
-            <TextInput
-              style={styles.textBox}
-              value={tempUser.username}
-              onChangeText={(text) => setTempUser({ ...tempUser, username: text })}
-            />
-          ) : (
-            <View style={styles.textBox}>
-              <Text style={styles.value}>{user.username}</Text>
-            </View>
+          <Text style={styles.headerText}>Profile</Text>
+          {!isEditing && (
+            <TouchableOpacity onPress={() => setIsEditing(true)} style={styles.editIcon}>
+              <FontAwesome name="pencil" size={20} color={Colors.white} />
+            </TouchableOpacity>
           )}
         </View>
-                {/* Name */}
-                <View style={styles.infoSection}>
+
+        {/* Name */}
+        <View style={styles.infoSection}>
           <Text style={styles.label}>Name:</Text>
-          {isEditing ? (
-            <TextInput
-              style={styles.textBox}
-              value={tempUser.name}
-              onChangeText={(text) => setTempUser({ ...tempUser, name: text })}
-            />
-          ) : (
-            <View style={styles.textBox}>
-              <Text style={styles.value}>{user.username}</Text>
-            </View>
-          )}
+          <View style={styles.textBox}>
+            <Text style={styles.value}>{user.name}</Text>
+          </View>
         </View>
 
         {/* Email */}
         <View style={styles.infoSection}>
           <Text style={styles.label}>Email:</Text>
-          {isEditing ? (
-            <TextInput
-              style={styles.textBox}
-              value={tempUser.email}
-              onChangeText={(text) => setTempUser({ ...tempUser, email: text })}
-            />
-          ) : (
-            <View style={styles.textBox}>
-              <Text style={styles.value}>{user.email}</Text>
-            </View>
-          )}
-        </View>
-
-        {/* Phone Number */}
-        <View style={styles.infoSection}>
-          <Text style={styles.label}>Phone Number:</Text>
-          {isEditing ? (
-            <TextInput
-              style={styles.textBox}
-              value={tempUser.phone}
-              onChangeText={(text) => setTempUser({ ...tempUser, phone: text })}
-            />
-          ) : (
-            <View style={styles.textBox}>
-              <Text style={styles.value}>{user.phone}</Text>
-            </View>
-          )}
-        </View>
-
-        {/* Grubhub Connection */}
-        <View style={styles.infoSection}>
-          {/* <Text style={styles.label}>Grubhub Account:</Text> */}
-          {isGrubhubConnected ? (
-            <Text style={styles.connectedText}>Connected</Text>
-          ) : (
-            <TouchableOpacity style={styles.connectButton} onPress={handleConnectGrubhub}>
-              <Text style={styles.buttonText}>Connect Grubhub</Text>
-            </TouchableOpacity>
-          )}
-        </View>
-
-        {/* Save and Cancel Buttons */}
-        {isEditing && (
-          <View style={styles.editButtons}>
-            <TouchableOpacity style={styles.cancelButton} onPress={handleCancel}>
-              <Text style={styles.buttonText}>Cancel</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-              <Text style={styles.buttonText}>Save</Text>
-            </TouchableOpacity>
+          <View style={styles.textBox}>
+            <Text style={styles.value}>{user.email}</Text>
           </View>
-        )}
+        </View>
 
         {/* Logout Button */}
-        <TouchableOpacity style={styles.logoutButton} onPress={() => console.log("Logged out!")}>
+        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
           <Text style={styles.buttonText}>Log Out</Text>
         </TouchableOpacity>
       </View>
@@ -166,15 +89,15 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
-    justifyContent: "center", 
+    justifyContent: "center",
     alignItems: "center",
     marginBottom: 20,
     marginTop: 10,
-    position: "relative", 
+    position: "relative",
   },
   editIcon: {
-    position: "absolute", 
-    right: 10, 
+    position: "absolute",
+    right: 10,
   },
   headerText: {
     fontSize: 24,
@@ -205,36 +128,6 @@ const styles = StyleSheet.create({
   value: {
     fontSize: 16,
     color: "#333",
-  },
-  connectedText: {
-    fontSize: 16,
-    color: "green",
-    fontWeight: "bold",
-  },
-  connectButton: {
-    backgroundColor: "#FF8000",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-  editButtons: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 20,
-  },
-  cancelButton: {
-    backgroundColor: "grey",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-    width: "45%",
-  },
-  saveButton: {
-    backgroundColor: Colors.blue,
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-    width: "45%",
   },
   logoutButton: {
     backgroundColor: Colors.red,

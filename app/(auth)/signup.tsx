@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/firebaseConfig'; // Import your Firebase configuration
-
+import { auth } from '@/firebaseConfig'; 
+import { app } from "@/firebaseConfig";
 export default function Signup() {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');

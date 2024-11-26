@@ -1,14 +1,12 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth } from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAuIjJEh-XpdpbQ7NilPJ8VIcGrpqpWCNc",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "roaryrewards.firebaseapp.com",
   projectId: "roaryrewards",
   storageBucket: "roaryrewards.firebasestorage.app",
@@ -17,7 +15,12 @@ const firebaseConfig = {
   measurementId: "G-C42H8N5MWT"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// Initialize Firebase only if it hasn't been initialized already
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+// Get Analytics (optional, if you're using it)
+const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
+
+// Export Firebase services
 export const auth = getAuth(app);
+export { app, analytics };

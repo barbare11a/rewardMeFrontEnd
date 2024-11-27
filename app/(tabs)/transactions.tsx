@@ -1,8 +1,25 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Linking } from "react-native";
-import Colors from "@/constants/Colors"; // Adjust this path if necessary
-import restaurantData from "@/data/restaurants.json"; // Adjust this path if necessary
+import Colors from "@/constants/Colors"; 
+import restaurantData from "@/data/restaurants.json"; 
 import { Stack } from "expo-router";
+import images from "@/constants/images";
+
+type ShopData = {
+  id: string;
+  name: string;
+  category: string;
+  image: string;
+  grubhubLink: string;
+  discountCodes?: {
+    code: string;
+    pointsRequired: number;
+    status: string;
+  }[];
+};
+
+const typedRestaurantData = restaurantData as ShopData[];
+
 
 const categories = ["All", "Food & Drinks", "Student Orgs"];
 
@@ -10,14 +27,17 @@ const Page = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredShops =
-    selectedCategory === "All"
-      ? restaurantData
-      : restaurantData.filter((shop) => shop.category === selectedCategory);
+  selectedCategory === "All"
+    ? typedRestaurantData
+    : typedRestaurantData.filter((shop) => shop.category === selectedCategory);
 
   const handlePress = (link: string) => {
     Linking.openURL(link).catch((err) => {
       console.error("Failed to open link: ", err);
     });
+  };
+  const getImageSource = (imageName: string) => {
+    return images[imageName] || null; 
   };
 
   const renderCategoryButton = (category: string) => (
@@ -45,7 +65,12 @@ const Page = () => {
       style={styles.card}
       onPress={() => handlePress(item.grubhubLink)}
     >
-      <Image source={{ uri: item.image }} style={styles.image} />
+  {item.image && (
+      <Image
+        source={getImageSource(item.image)}
+        style={styles.image}
+      />
+    )}
       <Text style={styles.cardTitle}>{item.name}</Text>
       <Text style={styles.cardSubtitle}>{item.category}</Text>
     </TouchableOpacity>

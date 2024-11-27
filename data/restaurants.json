@@ -1,69 +1,249 @@
 [
-    {
-      "id": "1",
-      "name": "Starbucks",
-      "category": "Food & Drinks",
-      "image": "https://link/to/starbucks-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/starbucks-fiu-campus",
-      "discountCodes": [
+  {
+    "id": "1",
+    "name": "Starbucks",
+    "category": "Food & Drinks",
+    "image": "starbucks.jpg",
+    "grubhubLink": "https://www.starbucks.com/rewards/mobile-apps/",
+    "discountCodes": [
       { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
       { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
     ]
-    },
-    {
-      "id": "2",
-      "name": "The Salty Donut",
-      "category": "Food & Drinks",
-      "image": "https://link/to/salty-donut-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/the-salty-donut-fiu-campus",
-      "discountCodes": [
+  },
+  {
+    "id": "2",
+    "name": "The Salty Donut",
+    "category": "Food & Drinks",
+    "image": "saltyDonut.jpg",
+    "grubhubLink": "https://order.saltydonut.com/",
+    "discountCodes": [
       { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
       { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
-      ]
-    },
-    {
-      "id": "3",
-      "name": "Pincho Factory",
-      "category": "Food & Drinks",
-      "image": "https://link/to/pincho-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/pincho-factory-fiu-campus",
-      "discountCodes": [
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Jamba Juice",
+    "category": "Food & Drinks",
+    "image": "jamba.png",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
       { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
       { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
-      ]
-    },
-    {
-      "id": "4",
-      "name": "Sushi Maki",
-      "category": "Food & Drinks",
-      "image": "https://link/to/sushi-maki-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/sushi-maki-fiu-campus",
-      "discountCodes": [
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Sushi Maki",
+    "category": "Food & Drinks",
+    "image": "sushimaki.jpg",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
       { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
       { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
-      ]
-    },
-    {
-      "id": "5",
-      "name": "Market",
-      "category": "Food & Drinks",
-      "image": "https://link/to/market-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/market-fiu-campus",
-      "discountCodes": [
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Market @ Breezeway",
+    "category": "Food & Drinks",
+    "image": "market.jpg",
+    "grubhubLink": "https://grubhub.com/restaurant/market-fiu-campus",
+    "discountCodes": [
       { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
       { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
-      ]
-    },
-    {
-      "id": "6",
-      "name": "Panda Express",
-      "category": "Food & Drinks",
-      "image": "https://link/to/panda-express-logo.png",
-      "grubhubLink": "https://grubhub.com/restaurant/panda-express-fiu-campus",
-      "discountCodes": [
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Panda Express",
+    "category": "Food & Drinks",
+    "image": "panda.jpg",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
       { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
       { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
-      ]
-    }
-  ]
-  
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Almazar",
+    "category": "Food & Drinks",
+    "image": "almazar.jpg",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Auntie Anne's",
+    "category": "Food & Drinks",
+    "image": "aa-logo.jpg",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "8th St. Campus Kitchen",
+    "category": "Food & Drinks",
+    "image": "8thSt.jpg",
+    "grubhubLink": "https://dineoncampus.com/FIU/whats-on-the-menu",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Cafe Bustelo",
+    "category": "Food & Drinks",
+    "image": "bustelo.jpg",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Chick Fil A",
+    "category": "Food & Drinks",
+    "image": "chickfila.jpg",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Crepe King",
+    "category": "Food & Drinks",
+    "image": "crepeking.jpg",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Chili's",
+    "category": "Food & Drinks",
+    "image": "chilis.jpg",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Dunkin Donuts",
+    "category": "Food & Drinks",
+    "image": "dunkin.jpg",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Halal Shack",
+    "category": "Food & Drinks",
+    "image": "Halal-Shack.png",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "16",
+    "name": "Half Moon Empanadas",
+    "category": "Food & Drinks",
+    "image": "Half-moon.png",
+    "grubhubLink": "https://www.grubhub.com/lets-eat",
+    "discountCodes": [
+      { "code": "DISCOUNT10", "pointsRequired": 100, "status": "available" },
+      { "code": "DISCOUNT15", "pointsRequired": 200, "status": "available" }
+    ]
+  },
+  {
+    "id": "17",
+    "name": "Women in Computer Science",
+    "category": "Student Orgs",
+    "image": "wics.jpg",
+    "grubhubLink": "hhttps://fiu.campuslabs.com/engage/organization/wics"
+  } ,
+  {
+    "id": "18",
+    "name": "Init FIU",
+    "category": "Student Orgs",
+    "image": "init.jpg",
+    "grubhubLink": "https://fiu.campuslabs.com/engage/organization/weareinit"
+  },
+  {
+    "id": "19",
+    "name": "Center for Student Engagement",
+    "category": "Student Orgs",
+    "image": "cse.jpg",
+    "grubhubLink": "https://fiu.campuslabs.com/engage/organization/cse"
+  },
+  {
+    "id": "20",
+    "name": "Student Government Association",
+    "category": "Student Orgs",
+    "image": "sga.jpg",
+    "grubhubLink": "https://fiu.campuslabs.com/engage/organization/student-government-association"
+  },
+  {
+    "id": "21",
+    "name": "Panther Robotics",
+    "category": "Student Orgs",
+    "image": "pantherrobo.jpg",
+    "grubhubLink": "hhttps://fiu.campuslabs.com/engage/organization/pantherrobotics"
+  },
+  {
+    "id": "22",
+    "name": "SHPE",
+    "category": "Student Orgs",
+    "image": "shpe.jpg",
+    "grubhubLink": "https://fiu.campuslabs.com/engage/organization/shpe"
+  },
+  {
+    "id": "23",
+    "name": "Asian Student Union",
+    "category": "Student Orgs",
+    "image": "asu.jpg",
+    "grubhubLink": "https://fiu.campuslabs.com/engage/organization/asian-student-union"
+  },
+  {
+    "id": "24",
+    "name": "Society of Women Engineers",
+    "category": "Student Orgs",
+    "image": "swe.jpg",
+    "grubhubLink": "https://fiu.campuslabs.com/engage/organization/society-of-women-engineers"
+  },
+  {
+    "id": "25",
+    "name": "Green Energy Society",
+    "category": "Student Orgs",
+    "image": "greenEsoc.jpg",
+    "grubhubLink": "https://fiu.campuslabs.com/engage/organization/greenenergysociety"
+  },
+  {
+    "id": "26",
+    "name": "Women in CyberSecurity",
+    "category": "Student Orgs",
+    "image": "wicys.jpg",
+    "grubhubLink": "https://fiu.campuslabs.com/engage/organization/wicysfiu"
+  }
+
+]

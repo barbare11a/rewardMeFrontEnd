@@ -12,7 +12,7 @@ import { IncomeType } from "@/types";
 import { DollarIcon, WalletAddMoneyIcon, WalletCardIcon } from "@/constants/Icons";
 import { Feather } from "@expo/vector-icons";
 
-const IncomeBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
+const RewardsBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
   const renderItem: ListRenderItem<IncomeType> = ({ item }) => {
     let icon = <DollarIcon width={22} height={22} color={Colors.white} />;
     if ( item.name == 'Freelancing' ) {
@@ -57,7 +57,7 @@ const IncomeBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
         </View>
         <Text style={{ color: Colors.white }}>{item.name}</Text>
         <Text style={{ color: Colors.white, fontSize: 18, fontWeight: "600" }}>
-          ${amount[0]}.
+          {amount[0]} points
           <Text style={{ fontSize: 12, fontWeight: "400" }}>{amount[1]}</Text>
         </Text>
       </View>
@@ -79,6 +79,6 @@ const IncomeBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
   );
 };
 
-export default IncomeBlock;
+export default RewardsBlock;
 
 const styles = StyleSheet.create({});

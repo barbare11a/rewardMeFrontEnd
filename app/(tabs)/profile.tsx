@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
-import { Stack } from "expo-router";
 import { auth } from "@/firebaseConfig"; // Import Firebase config
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
@@ -17,7 +16,6 @@ const Page = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        // Replace with displayName if you store the name in Firebase Auth
         setUser({
           name: currentUser.displayName || "Anonymous User",
           email: currentUser.email || "",
@@ -34,48 +32,44 @@ const Page = () => {
     try {
       await signOut(auth);
       Alert.alert("Logged Out", "You have been logged out.");
-      // Navigate to login screen if necessary
     } catch (error) {
       Alert.alert("Error", "Failed to log out. Please try again.");
     }
   };
 
   return (
-    <>
-      <Stack.Screen options={{ headerShown: false }} />
-      <View style={styles.container}>
-        {/* Header with Edit Icon */}
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Profile</Text>
-          {!isEditing && (
-            <TouchableOpacity onPress={() => setIsEditing(true)} style={styles.editIcon}>
-              <FontAwesome name="pencil" size={20} color={Colors.white} />
-            </TouchableOpacity>
-          )}
-        </View>
-
-        {/* Name */}
-        <View style={styles.infoSection}>
-          <Text style={styles.label}>Name:</Text>
-          <View style={styles.textBox}>
-            <Text style={styles.value}>{user.name}</Text>
-          </View>
-        </View>
-
-        {/* Email */}
-        <View style={styles.infoSection}>
-          <Text style={styles.label}>Email:</Text>
-          <View style={styles.textBox}>
-            <Text style={styles.value}>{user.email}</Text>
-          </View>
-        </View>
-
-        {/* Logout Button */}
-        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-          <Text style={styles.buttonText}>Log Out</Text>
-        </TouchableOpacity>
+    <View style={styles.container}>
+      {/* Header with Edit Icon */}
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Profile</Text>
+        {!isEditing && (
+          <TouchableOpacity onPress={() => setIsEditing(true)} style={styles.editIcon}>
+            <FontAwesome name="pencil" size={20} color={Colors.white} />
+          </TouchableOpacity>
+        )}
       </View>
-    </>
+
+      {/* Name */}
+      <View style={styles.infoSection}>
+        <Text style={styles.label}>Name:</Text>
+        <View style={styles.textBox}>
+          <Text style={styles.value}>{user.name}</Text>
+        </View>
+      </View>
+
+      {/* Email */}
+      <View style={styles.infoSection}>
+        <Text style={styles.label}>Email:</Text>
+        <View style={styles.textBox}>
+          <Text style={styles.value}>{user.email}</Text>
+        </View>
+      </View>
+
+      {/* Logout Button */}
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <Text style={styles.buttonText}>Log Out</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 

@@ -4,10 +4,10 @@ import Colors from "@/constants/Colors";
 import { Stack } from "expo-router";
 import Header from "@/components/Header";
 import ExpenseBlock from "@/components/ExpenseBlock";
-import IncomeBlock from "@/components/IncomeBlock";
+import IncomeBlock from "@/components/Rewards";
 import SpendingBlock from "@/components/SpendingBlock";
 import ExpenseList from "@/data/expenses.json";
-import incomeList from "@/data/income.json";
+import incomeList from "@/data/rewards.json";
 import spendingList from "@/data/spending.json";
 
 const Page = () => {
@@ -42,7 +42,7 @@ const Page = () => {
           >
             <View style={{ gap: 10 }}>
               <Text style={{ color: Colors.white, fontSize: 20 }}>
-                Hi <Text style={{ fontWeight: "700" }}>Username!</Text>
+                Hi <Text style={{ fontWeight: "700" }}>Roary!</Text>
               </Text>
               <Text
                 style={{ color: Colors.white, fontSize: 30, fontWeight: "700" }}

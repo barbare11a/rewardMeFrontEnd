@@ -16,20 +16,20 @@ const Header = () => {
               style={styles.userImg}
           />
           <View style={styles.userTxtWrapper}>
-            {/* <Text style={[styles.userText, { fontSize: 12 }]}>Hi, Jenny</Text> */}
+            {/* <Text style={[styles.userText, { fontSize: 12 }]}>Hi, </Text> */}
             {/* <Text style={[styles.userText, { fontSize: 16 }]}>
               Hi <Text style={styles.boldText}>Username!</Text>
             </Text> */}
           </View>
         </View>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => {}}
           //  style={styles.btnWrapper}
         >
           <Text style={styles.btnText}>
           <FontAwesome name="gear" size={20} />
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </SafeAreaView>
   );

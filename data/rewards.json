@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1",
+    "name": "WiCS: Free Merch item",
+    "amount": "500"
+  },
+  {
+    "id": "2",
+    "name": "Panda Express: 10% off",
+    "amount": "850"
+  },
+  {
+    "id": "3",
+    "name": "Starbucks: Double points",
+    "amount": "200"
+  }
+]

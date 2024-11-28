@@ -1,16 +1,15 @@
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import AsyncStorage from '@react-native-async-storage/async-storage'; // For storing onboarding status
-import { useEffect, useState } from 'react';
-import 'react-native-reanimated';
+import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect, useState } from "react";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+// Prevent splash screen from hiding before loading finishes.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   const [isOnboarded, setIsOnboarded] = useState<boolean | null>(null);
@@ -18,13 +17,11 @@ export default function RootLayout() {
 
   useEffect(() => {
     const checkAppState = async () => {
-      // Check if the user has completed onboarding
-      const onboardingStatus = await AsyncStorage.getItem('isOnboarded');
-      setIsOnboarded(onboardingStatus === 'true');
+      const onboardingStatus = await AsyncStorage.getItem("isOnboarded");
+      setIsOnboarded(onboardingStatus === "true");
 
-      // Simulate checking for user authentication (replace with actual logic)
-      const userLoggedIn = false; // Replace with Firebase or real logic
-      setIsLoggedIn(userLoggedIn);
+      // Simulate checking authentication status
+      setIsLoggedIn(false); // Replace with actual logic when needed
     };
 
     if (loaded) {
@@ -33,32 +30,22 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
-  // While determining app state
   if (!loaded || isOnboarded === null || isLoggedIn === null) {
-    return null; // Show nothing or a loader
+    return null; // Show a loader if needed
   }
 
   return (
     <Stack
       screenOptions={{
-        headerShown: false, // Disable headers globally for all screens in this stack
+        headerShown: false,
       }}
     >
       {isOnboarded === false ? (
-        <Stack.Screen
-          name="(auth)/onboarding"
-          options={{ headerShown: false }} // Ensure onboarding screen has no header
-        />
+        <Stack.Screen name="(auth)/onboarding" />
       ) : isLoggedIn === false ? (
-        <Stack.Screen
-          name="(auth)/login"
-          options={{ headerShown: false }} // Ensure login screen has no header
-        />
+        <Stack.Screen name="(auth)/login" />
       ) : (
-        <Stack.Screen
-          name="(tabs)"
-          options={{ headerShown: false }} // Ensure main app tabs have no header
-        />
+        <Stack.Screen name="(tabs)" />
       )}
     </Stack>
   );

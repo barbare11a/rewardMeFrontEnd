@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebaseConfig'; 
-import { app } from "@/firebaseConfig";
+import { useRouter } from 'expo-router'; // Import useRouter for navigation
+
 export default function Signup() {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const router = useRouter(); // Initialize useRouter
 
   const handleSignup = async () => {
     // Validate fields
@@ -27,7 +29,6 @@ export default function Signup() {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // You can store `fullName` and `phone` in a database like Firestore if needed
       Alert.alert('Success', `Welcome, ${fullName}! Your account has been created.`);
       
       // Optional: Navigate to login or main app
@@ -48,6 +49,14 @@ export default function Signup() {
           break;
       }
     }
+  };
+
+  const handleOnboardingRedirect = () => {
+    router.push('/onboarding'); // Navigate to the onboarding page
+  };
+
+  const handleSignInRedirect = () => {
+    router.push('/(auth)/login'); // Navigate to the login page
   };
 
   return (
@@ -101,9 +110,16 @@ export default function Signup() {
         <Text style={styles.buttonText}>SIGN UP</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.signup}>
+      <TouchableOpacity style={styles.signup} onPress={handleSignInRedirect}>
         <Text style={styles.linkText}>
           Already have an account? <Text style={styles.highlight}>Sign in</Text>
+        </Text>
+      </TouchableOpacity>
+
+      {/* Onboarding Link */}
+      <TouchableOpacity style={styles.onboarding} onPress={handleOnboardingRedirect}>
+        <Text style={styles.linkText}>
+          <Text style={styles.highlight}>What's this app about?</Text>
         </Text>
       </TouchableOpacity>
     </View>
@@ -155,6 +171,9 @@ const styles = StyleSheet.create({
   },
   signup: {
     marginTop: 30,
+  },
+  onboarding: {
+    marginTop: 20,
   },
   linkText: {
     color: '#B0B0B0',

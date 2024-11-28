@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebaseConfig'; 
-import { app } from "@/firebaseConfig";
+import { useRouter } from 'expo-router'; // Import useRouter for navigation
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter(); // Initialize useRouter
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -22,6 +23,7 @@ export default function Login() {
       // Handle successful login
       Alert.alert('Success', `Welcome back, ${user.email}!`);
       // Navigate to the main app or dashboard if necessary
+      router.replace('/'); // Replace with the main app route
     } catch (error: any) {
       // Handle login errors
       switch (error.code) {
@@ -39,6 +41,13 @@ export default function Login() {
           break;
       }
     }
+  };
+
+  const handleSignupRedirect = () => {
+    router.push('/(auth)/signup'); // Redirect to the signup page
+  };
+  const handleOnboardingRedirect = () => {
+    router.push('/onboarding'); // Navigate to the onboarding page
   };
 
   return (
@@ -72,7 +81,14 @@ export default function Login() {
         <Text style={styles.linkText}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.signup}>
+       {/* Onboarding Link */}
+       <TouchableOpacity style={styles.onboarding} onPress={handleOnboardingRedirect}>
+        <Text style={styles.linkText}>
+          <Text style={styles.highlight}>What's this app about?</Text>
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.signup} onPress={handleSignupRedirect}>
         <Text style={styles.linkText}>
           Don't have an account? <Text style={styles.highlight}>Sign up</Text>
         </Text>
@@ -137,5 +153,8 @@ const styles = StyleSheet.create({
   highlight: {
     color: '#00D084',
     fontWeight: 'bold',
+  },
+  onboarding: {
+    marginTop: 20,
   },
 });

@@ -2,16 +2,25 @@
   {
     "id": "1",
     "name": "WiCS: Free Merch item",
-    "amount": "500"
+    "amount": "500",
+    "link": "https://wics.cs.fiu.edu/"
   },
   {
     "id": "2",
     "name": "Panda Express: 10% off",
-    "amount": "850"
+    "amount": "850",
+    "link": "https://www.grubhub.com/lets-eat"
   },
   {
     "id": "3",
     "name": "Starbucks: Double points",
-    "amount": "200"
+    "amount": "200",
+    "link": "https://www.starbucks.com/account/create?gad_source=1"
+  },
+  {
+    "id": "4",
+    "name": "Grubhub Rewards",
+    "amount": "1000",
+    "link": "https://www.grubhub.com/lets-eat" 
   }
 ]

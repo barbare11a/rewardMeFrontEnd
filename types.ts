@@ -6,6 +6,7 @@ export interface ExpenseType {
 }
 
 export interface IncomeType {
+  link: string | undefined;
   id: string;
   name: string;
   amount: string;

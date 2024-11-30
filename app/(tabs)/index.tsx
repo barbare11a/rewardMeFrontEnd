@@ -56,7 +56,7 @@ const Page = () => {
               {/* <Text
                style={{ color: Colors.white, fontSize: 10, fontWeight: "700", top:10}}
                >
-                Gold status </Text> */}
+                coin status </Text> */}
             </View>
           </View>
 

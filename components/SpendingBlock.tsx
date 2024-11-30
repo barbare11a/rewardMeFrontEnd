@@ -10,6 +10,7 @@ import {
   NetflixIcon,
   ShoopingCartIcon,
   SpotifyIcon,
+  WalletCardIcon
 } from "@/constants/Icons";
 
 const SpendingBlock = ({ spendingList }: { spendingList: SpendingType[] }) => {
@@ -22,9 +23,9 @@ const SpendingBlock = ({ spendingList }: { spendingList: SpendingType[] }) => {
       </Text>
 
       {spendingList.map((item) => {
-        if (item.name == "AirBnB Rent") {
-          icon = <AirbnbIcon width={22} height={22} color={Colors.white} />;
-        } else if (item.name == "Netflix") {
+        if (item.name == "Starbucks") {
+          icon = <WalletCardIcon width={22} height={22} color={Colors.white} />;
+        } else if (item.name == "") {
           icon = <NetflixIcon width={22} height={22} color={Colors.white} />;
         } else if (item.name == "Spotify") {
           icon = <SpotifyIcon width={22} height={22} color={Colors.white} />;
@@ -46,7 +47,7 @@ const SpendingBlock = ({ spendingList }: { spendingList: SpendingType[] }) => {
                 <Text style={styles.itemName}>{item.name}</Text>
                 <Text style={{ color: Colors.white }}>{item.date}</Text>
               </View>
-              <Text style={styles.itemName}>${item.amount}</Text>
+              <Text style={styles.itemName}>+{item.amount}</Text>
             </View>
           </View>
         );

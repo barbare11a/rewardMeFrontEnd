@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'reac
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebaseConfig'; 
 import { useRouter } from 'expo-router'; // Import useRouter for navigation
+import Colors from "@/constants/Colors";
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: '#00D084',
+    backgroundColor: Colors.tintColor,
     paddingVertical: 15,
     width: '100%',
     borderRadius: 10,
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: Colors.yellow,
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   highlight: {
-    color: '#00D084',
+    color: Colors.yellow,
     fontWeight: 'bold',
   },
   onboarding: {

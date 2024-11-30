@@ -34,7 +34,7 @@ const Page = () => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser({
-          name: currentUser.displayName || "Anonymous User",
+          name: currentUser.displayName || "Roary User",
           email: currentUser.email || "",
         });
         setResetEmail(currentUser.email || "");
@@ -119,7 +119,7 @@ const Page = () => {
         </View>
                  {/* Phone */}
                  <View style={styles.infoSection}>
-          <Text style={styles.label}>Phone: (optional)</Text>
+          <Text style={styles.label}>Phone: </Text>
           <View style={styles.textBox}>
             <Text style={styles.value}>{user.email}</Text>
           </View>

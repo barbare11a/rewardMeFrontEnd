@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebaseConfig'; 
-import { useRouter } from 'expo-router'; // Import useRouter for navigation
+import { useRouter } from 'expo-router'; 
 import Colors from "@/constants/Colors";
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter(); 
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -17,16 +17,16 @@ export default function Login() {
     }
 
     try {
-      // Firebase authentication logic
+    
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Handle successful login
+    
       Alert.alert('Success', `Welcome back, ${user.email}!`);
-      // Navigate to the main app or dashboard if necessary
-      router.replace('/'); // Replace with the main app route
+      
+      router.replace('/'); 
     } catch (error: any) {
-      // Handle login errors
+      
       switch (error.code) {
         case 'auth/invalid-email':
           Alert.alert('Invalid Email', 'The email address is badly formatted.');
@@ -45,10 +45,10 @@ export default function Login() {
   };
 
   const handleSignupRedirect = () => {
-    router.push('/(auth)/signup'); // Redirect to the signup page
+    router.push('/(auth)/signup'); 
   };
   const handleOnboardingRedirect = () => {
-    router.push('/onboarding'); // Navigate to the onboarding page
+    router.push('/onboarding'); 
   };
 
   return (
@@ -82,7 +82,7 @@ export default function Login() {
         <Text style={styles.linkText}>Forgot Password?</Text>
       </TouchableOpacity>
 
-       {/* Onboarding Link */}
+       
        <TouchableOpacity style={styles.onboarding} onPress={handleOnboardingRedirect}>
         <Text style={styles.linkText}>
           <Text style={styles.highlight}>What's this app about?</Text>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebaseConfig'; 
-import { useRouter } from 'expo-router'; // Import useRouter for navigation
+import { useRouter } from 'expo-router'; 
 import Colors from "@/constants/Colors";
 
 export default function Signup() {
@@ -11,10 +11,10 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter(); 
 
   const handleSignup = async () => {
-    // Validate fields
+   
     if (!fullName || !phone || !email || !password || !confirmPassword) {
       Alert.alert('Error', 'All fields are required.');
       return;
@@ -26,15 +26,15 @@ export default function Signup() {
     }
 
     try {
-      // Create user with Firebase Authentication
+     
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
       Alert.alert('Success', `Welcome, ${fullName}! Your account has been created.`);
       
-      // Optional: Navigate to login or main app
+      
     } catch (error: any) {
-      // Handle Firebase signup errors
+      
       switch (error.code) {
         case 'auth/email-already-in-use':
           Alert.alert('Error', 'This email is already in use.');
@@ -53,11 +53,11 @@ export default function Signup() {
   };
 
   const handleOnboardingRedirect = () => {
-    router.push('/onboarding'); // Navigate to the onboarding page
+    router.push('/onboarding');
   };
 
   const handleSignInRedirect = () => {
-    router.push('/(auth)/login'); // Navigate to the login page
+    router.push('/(auth)/login'); 
   };
 
   return (
@@ -117,7 +117,7 @@ export default function Signup() {
         </Text>
       </TouchableOpacity>
 
-      {/* Onboarding Link */}
+      
       <TouchableOpacity style={styles.onboarding} onPress={handleOnboardingRedirect}>
         <Text style={styles.linkText}>
           <Text style={styles.highlight}>What's this app about?</Text>

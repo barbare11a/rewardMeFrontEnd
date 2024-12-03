@@ -1,41 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Alert, FlatList, Button } from "react-native";
 import { RNCamera } from "react-native-camera";
-import spendingData from "@/data/spending.json"; // Adjust the path to your `spending.json`
+import spendingData from "@/data/spending.json"; 
 
 const QRScannerScreen = () => {
   const [transactions, setTransactions] = useState(spendingData);
   const [scanned, setScanned] = useState(false);
 
-  // Handle QR Code Read
+ 
   const handleBarCodeRead = (e: { data: string }) => {
     if (!scanned) {
       setScanned(true);
 
-      // Simulate a scanned transaction
+     
       const newTransaction = {
         id: (transactions.length + 1).toString(),
         name: "Scanned Organization",
-        amount: "0.00", // Replace with dynamic amount if needed
+        amount: "0.00", 
         date: new Date().toISOString().split("T")[0],
       };
 
-      // Update state with the new transaction
+    
       setTransactions((prev) => [...prev, newTransaction]);
 
-      // Show success message
+      
       Alert.alert("Congrats!", "You earned 100 points!", [
         {
           text: "OK",
-          onPress: () => setScanned(false), // Reset scanned state
+          onPress: () => setScanned(false), 
         },
       ]);
     }
   };
 
-  // Save the updated transactions list (for persistent storage)
+ 
   const saveTransactions = () => {
-    // Here you could save to AsyncStorage, a database, or write to a file
+    
     console.log("Transactions saved:", transactions);
   };
 

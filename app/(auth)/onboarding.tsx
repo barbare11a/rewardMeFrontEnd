@@ -36,12 +36,12 @@ export default function Onboarding() {
       flatListRef.current?.scrollToIndex({ index: currentIndex + 1, animated: true });
       setCurrentIndex(currentIndex + 1);
     } else {
-      router.push('/(auth)/signup'); // Navigate to the signup screen on the last slide
+      router.push('/(auth)/signup'); 
     }
   };
 
   const handleSkip = () => {
-    router.push('/(auth)/signup'); // Navigate to the signup screen
+    router.push('/(auth)/signup'); 
   };
 
   const onScrollEnd = (e: any) => {
@@ -72,7 +72,7 @@ export default function Onboarding() {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         ref={flatListRef}
-        onMomentumScrollEnd={onScrollEnd} // Update current index on scroll
+        onMomentumScrollEnd={onScrollEnd} 
       />
 
       <View style={styles.pagination}>

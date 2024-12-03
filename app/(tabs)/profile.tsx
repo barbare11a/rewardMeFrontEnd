@@ -14,7 +14,7 @@ import {
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { FontAwesome } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
-import { auth } from "@/firebaseConfig"; // Import Firebase config
+import { auth } from "@/firebaseConfig"; 
 import { onAuthStateChanged, signOut, sendPasswordResetEmail } from "firebase/auth";
 import { Stack, useRouter } from "expo-router";
 

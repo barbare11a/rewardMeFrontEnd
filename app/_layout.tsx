@@ -4,7 +4,7 @@ import * as SplashScreen from "expo-splash-screen";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
 
-// Prevent splash screen from hiding before loading finishes.
+
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -20,8 +20,8 @@ export default function RootLayout() {
       const onboardingStatus = await AsyncStorage.getItem("isOnboarded");
       setIsOnboarded(onboardingStatus === "true");
 
-      // Simulate checking authentication status
-      setIsLoggedIn(false); // Replace with actual logic when needed
+      
+      setIsLoggedIn(false); 
     };
 
     if (loaded) {
@@ -31,7 +31,7 @@ export default function RootLayout() {
   }, [loaded]);
 
   if (!loaded || isOnboarded === null || isLoggedIn === null) {
-    return null; // Show a loader if needed
+    return null; 
   }
 
   return (
